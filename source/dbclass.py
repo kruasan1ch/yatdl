@@ -1,6 +1,7 @@
 from abc import ABC, abstractmethod
 
 class dbclass(ABC):
+
     @abstractmethod
     def get(self):
         pass
@@ -12,10 +13,15 @@ class dbclass(ABC):
 
 
     @abstractmethod
+    def update(self, dataLine):
+        pass
+
+
+    @abstractmethod
     def isRegistered(self, name, password):
         pass
 
     
     @abstractmethod
-    def register(self, name, password, role):
+    def register(self,isAdmin ,name, password, role):
         pass

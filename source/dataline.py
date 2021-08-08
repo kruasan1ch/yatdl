@@ -1,9 +1,9 @@
 class dataLine:
-    def __init__(self, ID, timestamp, text, userName, status):
+    def __init__(self, ID, timestamp, text, userId, status):
         self._id = ID
         self._timestamp = timestamp
         self._text = text
-        self._userName = userName
+        self._userId = userId
         self._status = status
 
     @property
@@ -19,8 +19,8 @@ class dataLine:
         return self._text
     
     @property
-    def userName(self):
-        return self._userName
+    def userId(self):
+        return self._userId
 
     @property
     def status(self):

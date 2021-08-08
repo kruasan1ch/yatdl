@@ -1,13 +1,12 @@
-import sqlite3
+import sqlitedb
 
 class user:
-    def __init__(self, userid, username, password, role, dbpath):
+    def __init__(self, userid, username, password, role, dbaddress):
         self._user_id = userid
         self._user_name = username 
         self._user_pass = password
         self._user_role = role
-        self._db = sqlite3.connect(dbpath)
-        self._sql = self._db.cursor()
+        self._db = sqlitedb(dbaddress)
 
     @property
     def _user_id(self):
@@ -16,8 +15,6 @@ class user:
     @property
     def _user_role(self):
         return self._user_role
-
-    def getData()
-        self._sql.execute(f"SELECT * FROM tasks WHERE user_id = ? ", (self._user_id, ))
-        data = sql.fetchall()
-        return data
+    @property
+    def _getDb():
+        return self._db
