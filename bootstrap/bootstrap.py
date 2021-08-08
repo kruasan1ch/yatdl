@@ -28,15 +28,16 @@ connect = sqlite3.connect(fullpath)
 sql = connect.cursor()
 sql.execute("""CREATE TABLE IF NOT EXISTS users(
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    user_name TEXT NOT NULL,
-    password TEXT NOT NULL,
-    role TINYINT NOT NULL
+    user_name   TEXT NOT NULL,
+    password    TEXT NOT NULL,
+    role        TINYINT NOT NULL
 )""")
 sql.execute("""CREATE TABLE IF NOT EXISTS tasks(
     ID INTEGER PRIMARY KEY AUTOINCREMENT,
-    date DATETIME,
-    task_text TEXT NOT NULL,
-    user_id INTEGER NOT NULL,
+    date        DATETIME,
+    task_text   TEXT NOT NULL,
+    user_id     INTEGER NOT NULL,
+    status      TINYINT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(ID)
 )""")
 connect.commit()
