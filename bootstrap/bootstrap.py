@@ -40,4 +40,5 @@ sql.execute("""CREATE TABLE IF NOT EXISTS tasks(
     status      TINYINT NOT NULL,
     FOREIGN KEY (user_id) REFERENCES users(ID)
 )""")
+sql.execute('INSERT INTO users (user_name, password, role) VALUES ("admin", "admin", 3)')
 connect.commit()

@@ -1,7 +1,8 @@
 import dbclass
 import datetime
+import sqlite3
 
-class sqlitedb(dbclass):
+class sqlitedb(dbclass.dbclass):
     def __init__(self, address):
         self._db = sqlite3.connect(address)
         self._sql = self._db.cursor()
