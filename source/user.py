@@ -2,23 +2,25 @@ from sqlitedb import sqlitedb
 
 class user:
     def __init__(self, username, password, dbaddress):
-        self._user_id = None
-        self._user_name = username 
-        self._user_pass = password
-        self._user_role = None
+        self._userId = None
+        self._userName = username 
+        self._userPass = password
+        self._userRole = None
         self._db = sqlitedb(dbaddress)
 
     def init(self):
-        if self._db.isRegistered(self._user_name, self._user_pass) == 1:
+        if self._db.isRegistered(self._userName, self._userPass) == 1:
             return True
         else:
             return False
+    def getName(self):
+        return self._userName
 
-    def _user_id(self):
-        return self._user_id
+    def getId(self):
+        return self._userId
     
-    def _user_role(self):
-        return self._user_role
+    def getRole(self):
+        return self._userRole
 
-    def _getDb():
+    def getDb():
         return self._db
