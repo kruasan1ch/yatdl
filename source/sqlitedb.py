@@ -17,7 +17,7 @@ class sqlitedb(dbclass.dbclass):
         self._sql.execute(f"INSERT INTO tasks (date, task_text, user_id, status) VALUES (?, ?, ?, ?)", (datetime, dataLine.text, dataLine.userID, dataLine._status))
         self._db.commit()
     
-    def update(self, dataLine, ID):
+    def updateData(self, dataLine, ID):
         datetime = dataLine.timestamp.date().isoformat()
         self._sql.execute(f"UPDATE tasks date = ?, task_text = ?, user_id = ?, status = ? WHERE ID = ?", (datetime, dataLine.text, dataLine.userID, dataLine._status, ID))
         self._db.commit()
@@ -28,12 +28,13 @@ class sqlitedb(dbclass.dbclass):
             return False
         else:
             return True
+    
+    def getUserData(self, name):
+        self._sql.execute(f"SELECT ID, role FROM users WHERE (user_name = ?)", (name,))
+        result = self._sql.fetchone()
+        return result
 
-    def register(self, isAdmin, name, password, role):
-        if isAdmin:
+    def register(self, name, password, role):
             self._sql.execute(f"INSERT INTO users (user_name, password, role) VALUES (?, ?, ?)", (name, password, role))
             self._db.commit()
-            return True
-        else:
-            return False
        

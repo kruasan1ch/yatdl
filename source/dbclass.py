@@ -13,15 +13,19 @@ class dbclass(ABC):
 
 
     @abstractmethod
-    def update(self, dataLine):
+    def updateData(self, dataLine):
         pass
 
 
     @abstractmethod
-    def isRegistered(self, name, password):
+    def isRegistered(self, username, password):
         pass
 
     
     @abstractmethod
-    def register(self,isAdmin ,name, password, role):
+    def register(self,isAdmin ,username, password, role):
+        pass
+
+    @abstractmethod
+    def getUserData(self, username):
         pass

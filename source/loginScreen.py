@@ -18,9 +18,6 @@ class loginScreen(QtWidgets.QMainWindow):
         __user = user.user(username, password, address)
         success = __user.init()
         if success:
-            msg = QtWidgets.QMessageBox()
-            msg.setText(str(success))
-            msg.exec()
             self.mainScreen = mainScreen(__user)
             self.mainScreen.show()
             self.close()
