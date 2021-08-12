@@ -29,3 +29,11 @@ class dbclass(ABC):
     @abstractmethod
     def getUserData(self, username):
         pass
+
+    @abstractmethod
+    def getUsers(self):
+        pass
+
+    @abstractmethod
+    def getTasks(self, role, ID):
+        pass

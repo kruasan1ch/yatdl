@@ -34,6 +34,19 @@ class sqlitedb(dbclass.dbclass):
         result = self._sql.fetchone()
         return result
 
+    def getUsers(self):
+        self._sql.execute("SELECT * FROM users")
+        result = self._sql.fetchall()
+        return result
+    
+    def getTasks(self, role, ID):
+        if role > 0:
+            self._sql.execute("SELECT * FROM tasks")
+        else:
+            self._sql.execute(f"SELECT * FROM tasks WHERE (user_id = ?)", (ID,))
+        result = self._sql.fetchall()
+        return result
+
     def register(self, name, password, role):
             self._sql.execute(f"INSERT INTO users (user_name, password, role) VALUES (?, ?, ?)", (name, password, role))
             self._db.commit()

@@ -28,3 +28,9 @@ class user:
 
     def getDb(self):
         return self._db
+
+    def getUsers(self):
+        return self._db.getUsers()
+    
+    def getTasks(self):
+        return self._db.getTasks(self._userRole, self.userId)

@@ -7,7 +7,14 @@ class registrationScreen(QtWidgets.QDialog):
         super(registrationScreen, self).__init__()
         uic.loadUi('Registration.ui', self)
         self.regButton.clicked.connect(self.registrate)
-        self._user = __user 
+        self._user = __user
+        self._users = self._user.getUsers()
+        self.insertUsers()
+
+    def insertUsers(self):
+        for userData in self._users :
+            self.userList.addItem(str(userData))
+
     def registrate(self):
         username = self.usernameLine.text()
         password = self.passwordLine.text()
