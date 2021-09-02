@@ -6,22 +6,22 @@ class dbclass(ABC):
     def get(self):
         pass
 
-
     @abstractmethod
     def insert(self, dataLine):
         pass
 
-
     @abstractmethod
     def updateData(self, dataLine):
         pass
-
-
+    
+    @abstractmethod
+    def delete(self, ID):
+        pass
+    
     @abstractmethod
     def isRegistered(self, username, password):
         pass
 
-    
     @abstractmethod
     def register(self,isAdmin ,username, password, role):
         pass
@@ -32,6 +32,10 @@ class dbclass(ABC):
 
     @abstractmethod
     def getUsers(self):
+        pass
+    @abstractmethod
+    
+    def deleteUser(self, ID):
         pass
 
     @abstractmethod

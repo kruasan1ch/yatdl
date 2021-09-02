@@ -12,9 +12,8 @@ class sqlitedb(dbclass.dbclass):
         data = sql.fetchall()
         return data
 
-    def insert(self, dataLine):
-        datetime = dataLine.timestamp.date().isoformat()
-        self._sql.execute(f"INSERT INTO tasks (date, task_text, user_id, status) VALUES (?, ?, ?, ?)", (datetime, dataLine.text, dataLine.userID, dataLine._status))
+    def insert(self, data):
+        self._sql.execute(f"INSERT INTO tasks (date, task_text, user_id, status) VALUES (?, ?, ?, ?)", (data["time"], data["text"], data["ID"], data["status"]))
         self._db.commit()
     
     def updateData(self, dataLine, ID):
@@ -22,6 +21,10 @@ class sqlitedb(dbclass.dbclass):
         self._sql.execute(f"UPDATE tasks date = ?, task_text = ?, user_id = ?, status = ? WHERE ID = ?", (datetime, dataLine.text, dataLine.userID, dataLine._status, ID))
         self._db.commit()
     
+    def delete(self, ID):
+        self._sql.execute(f"DELETE FROM tasks WHERE ID = ?", (ID,))
+        self._db.commit()
+
     def isRegistered(self, name, password):
         self._sql.execute(f"SELECT ID FROM users WHERE (user_name = ? AND password = ?)",(name, password))
         if self._sql.fetchone() is None:
@@ -39,6 +42,10 @@ class sqlitedb(dbclass.dbclass):
         result = self._sql.fetchall()
         return result
     
+    def deleteUser(self, ID):
+        self._sql.execute(f"DELETE FROM users WHERE ID = ?", (ID,))
+        self._db.commit()
+
     def getTasks(self, role, ID):
         if role > 0:
             self._sql.execute("SELECT * FROM tasks")

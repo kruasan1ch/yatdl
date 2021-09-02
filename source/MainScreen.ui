@@ -6,53 +6,20 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>574</width>
-    <height>372</height>
+    <width>678</width>
+    <height>415</height>
    </rect>
   </property>
   <property name="windowTitle">
    <string>Yatdl</string>
   </property>
   <widget class="QWidget" name="centralwidget">
-   <widget class="QScrollArea" name="scrollArea">
-    <property name="geometry">
-     <rect>
-      <x>10</x>
-      <y>10</y>
-      <width>551</width>
-      <height>281</height>
-     </rect>
-    </property>
-    <property name="widgetResizable">
-     <bool>true</bool>
-    </property>
-    <widget class="QWidget" name="scrollAreaWidgetContents">
-     <property name="geometry">
-      <rect>
-       <x>0</x>
-       <y>0</y>
-       <width>549</width>
-       <height>279</height>
-      </rect>
-     </property>
-     <widget class="QListWidget" name="taskList">
-      <property name="geometry">
-       <rect>
-        <x>0</x>
-        <y>0</y>
-        <width>551</width>
-        <height>281</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
-   </widget>
    <widget class="QWidget" name="horizontalLayoutWidget">
     <property name="geometry">
      <rect>
       <x>10</x>
       <y>300</y>
-      <width>551</width>
+      <width>651</width>
       <height>31</height>
      </rect>
     </property>
@@ -67,10 +34,88 @@
       <widget class="QComboBox" name="comboBox"/>
      </item>
      <item>
+      <widget class="QComboBox" name="statusBox"/>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="horizontalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>340</y>
+      <width>651</width>
+      <height>31</height>
+     </rect>
+    </property>
+    <layout class="QHBoxLayout" name="horizontalLayout_2">
+     <item>
       <widget class="QPushButton" name="newTaskButton">
        <property name="text">
-        <string>New Task</string>
+        <string>Добавить</string>
        </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="deleteButton">
+       <property name="text">
+        <string>Удалить</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="refreshButton">
+       <property name="text">
+        <string>Обновить</string>
+       </property>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>10</y>
+      <width>651</width>
+      <height>281</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="label">
+       <property name="text">
+        <string>ID    |    Дата    |    Текст   |     Сотрудник    |    Статус</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignBottom|Qt::AlignLeading|Qt::AlignLeft</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QScrollArea" name="scrollArea">
+       <property name="widgetResizable">
+        <bool>true</bool>
+       </property>
+       <widget class="QWidget" name="scrollAreaWidgetContents">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>647</width>
+          <height>257</height>
+         </rect>
+        </property>
+        <widget class="QListWidget" name="taskList">
+         <property name="geometry">
+          <rect>
+           <x>0</x>
+           <y>0</y>
+           <width>651</width>
+           <height>281</height>
+          </rect>
+         </property>
+        </widget>
+       </widget>
       </widget>
      </item>
     </layout>
@@ -81,7 +126,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>574</width>
+     <width>678</width>
      <height>19</height>
     </rect>
    </property>

@@ -89,7 +89,14 @@
     <item>
      <widget class="QPushButton" name="regButton">
       <property name="text">
-       <string>Register</string>
+       <string>Добавить</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QPushButton" name="delButton">
+      <property name="text">
+       <string>Удалить</string>
       </property>
      </widget>
     </item>
